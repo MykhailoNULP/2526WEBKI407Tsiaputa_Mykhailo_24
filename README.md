@@ -1,11 +1,22 @@
-This directory is intended for PlatformIO Test Runner and project tests.
+Лабораторна робота №1 (HTTP Server)
+Hardware:
 
-Unit Testing is a software testing method by which individual units of
-source code, sets of one or more MCU program modules together with associated
-control data, usage procedures, and operating procedures, are tested to
-determine whether they are fit for use. Unit testing finds problems early
-in the development cycle.
+Microcontroller: ESP32 Dev Module (30-pin version).
 
-More information about PlatformIO Unit Testing:
-- https://docs.platformio.org/en/latest/advanced/unit-testing/index.html
+Interface: USB-to-UART (CP2102 or CH340).
 
+Network: Wi-Fi 2.4GHz (Station and Access Point modes).
+
+Libraries:
+
+
+Arduino.h — базовий фреймворк.
+
+
+WiFi.h — робота з мережею.
+
+
+WebServer.h — стандартний HTTP-сервер.
+
+
+LittleFS.h — файлова система для зберігання сайту.
