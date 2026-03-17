@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terminal_V2.0 // Mykhailo</title>
+    <style>
+        body { background: #0a0a0a; color: #33ff33; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .terminal-box { border: 2px solid #33ff33; padding: 30px; border-radius: 5px; box-shadow: 0 0 15px rgba(51, 255, 51, 0.2); width: 400px; }
+        h2 { text-align: center; border-bottom: 1px solid #33ff33; padding-bottom: 10px; }
+        .btn-group { display: flex; justify-content: space-around; margin-top: 30px; }
+        button { background: transparent; border: 1px solid #33ff33; color: #33ff33; padding: 10px 20px; cursor: pointer; font-family: inherit; font-size: 1.1em; transition: 0.3s; }
+        button:hover { background: #33ff33; color: #000; box-shadow: 0 0 20px #33ff33; }
+        .status { margin-top: 20px; font-size: 0.8em; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div class="terminal-box">
+        <h2>CORE_LINK//LED_CONTROL</h2>
+        <p>Target Device: ESP32_DEV_MODULE</p>
+        <p>Operator: Mykhailo</p>
+        
+        <div class="btn-group">
+            <button onclick="sendCmd(1)">ENABLE</button>
+            <button onclick="sendCmd(0)">DISABLE</button>
+        </div>
+        
+        <div class="status">> Ready for command...</div>
+    </div>
+
+    <script>
+        function sendCmd(state) {
+            const statusDiv = document.querySelector('.status');
+            statusDiv.innerText = "> Sending packet...";
+            
+            fetch('/api/v1/control', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({led: state})
+            })
+            .then(res => res.json())
+            .then(data => {
+                statusDiv.innerText = "> Status: " + (state ? "ENABLED" : "DISABLED");
+            })
+            .catch(err => {
+                statusDiv.innerText = "> Error: CONNECTION_LOST";
+            });
+        }
+    </script>
+</body>
+</html>
