@@ -1,9 +1,9 @@
 
-Лабораторна робота №3: WebSockets (Telemetry)
-Hardware (Апаратна частина):
+
 
 
 Microcontroller: ESP32 Dev Module (30-pin version).
+
 
 Sensor: HMC5883L (3-axis Digital Compass/Magnetometer) для вимірювання параметрів магнітного поля та орієнтації.
 
@@ -31,6 +31,56 @@ ArduinoJson.h — використовується для пакування д�
 
 Wire.h — стандартна бібліотека для роботи з інтерфейсом I2C, за яким підключається датчик HMC5883L.
 =======
+=======
+
+Peripheral: Built-in Blue LED (підключений до GPIO 2).
+
+
+Interface: USB-to-UART (CP2102 або CH340) для програмування.
+
+
+Network: Wi-Fi 2.4GHz (підтримка режимів Station та Access Point).
+
+Libraries (Програмні бібліотеки):
+
+
+Arduino.h — базовий фреймворк для розробки.
+
+
+WiFi.h — бібліотека для забезпечення роботи з мережею Wi-Fi.
+
+
+WebServer.h — стандартний HTTP-сервер для обробки запитів.
+
+
+LittleFS.h — файлова система для зберігання файлів сайту в пам'яті контролера.
+
+
+ArduinoJson.h — спеціальна бібліотека для парсингу та формування команд керування світлодіодом у форматі JSON.
+=======
+Лабораторна робота №1 (HTTP Server)
+Hardware:
+
+Microcontroller: ESP32 Dev Module (30-pin version).
+
+Interface: USB-to-UART (CP2102 or CH340).
+
+Network: Wi-Fi 2.4GHz (Station and Access Point modes).
+
+Libraries:
+
+
+Arduino.h — базовий фреймворк.
+
+
+WiFi.h — робота з мережею.
+
+
+WebServer.h — стандартний HTTP-сервер.
+
+
+LittleFS.h — файлова система для зберігання сайту.
+
 Студент: Цяпута Михайло Петрович
 Група: КІ-407
 Дисципліна: Веб-технології та проєктування систем на мікроконтролерах
@@ -56,5 +106,4 @@ Lab 3: Передача телеметрії з датчика HMC5883L чере
 
 Lab 4: Створення Captive Portal для конфігурації Wi-Fi.
 
-Lab 5: Захищений HTTPS-сервер з апаратним шифруванням RSA/AES.
 
